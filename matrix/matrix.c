@@ -37,3 +37,17 @@ void matrix_fill(Matrix *A, int n) {
 		}
 	}
 }
+
+/*
+ * frees the memory of all entries in a selected matrix
+ * as well as the matrix struct itself
+ * param: 
+ * 	Matrix* A - pointer to a matrix in memory
+ */
+void matrix_free(Matrix* A) {
+	for (int i = 0; i < A->rows; ++i) {
+		free(A->entries[i]);
+	}
+	free(A);
+	A = NULL;
+}
