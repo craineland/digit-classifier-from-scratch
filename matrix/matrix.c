@@ -44,10 +44,25 @@ void matrix_fill(Matrix *A, int n) {
  * param: 
  * 	Matrix* A - pointer to a matrix in memory
  */
-void matrix_free(Matrix* A) {
+void free_matrix(Matrix* A) {
 	for (int i = 0; i < A->rows; ++i) {
 		free(A->entries[i]);
 	}
 	free(A);
 	A = NULL;
+}
+
+/*
+ * prints entry and matrix information
+ * param:
+ * 	Matrix* A - pointer to a matrix in memory
+ */
+void print_matrix(Matrix* A) {
+	printf("Rows: %d, Columns: %d\n", A->rows, A->cols);
+	for (int i = 0; i < A->rows; ++i) {
+		for (int i = 0; i < A->rows; ++i) {
+			printf("1.4f ", A->entries[i][j]);
+		 }
+		printf("\n");
+	}
 }
